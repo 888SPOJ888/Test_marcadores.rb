@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Url:</strong>
+  <%= @bookmark.url %>
+</p>
+
+<p>
+  <strong>Category:</strong>
+  <%= @bookmark.category.name %>
+</p>
+
+<p>
+  <strong>Type:</strong>
+  <%= @bookmark.type.name %>
+</p>
+
+<%= link_to 'Edit', edit_bookmark_path(@bookmark, class: 'btn btn-outline-warning') %> |
+<%= link_to 'Back', bookmarks_path, class: 'btn btn-outline-danger' %>

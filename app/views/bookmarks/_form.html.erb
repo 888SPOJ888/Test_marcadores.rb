@@ -1,0 +1,35 @@
+<%= form_with(model: bookmark, local: true) do |form| %>
+  <% if bookmark.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(bookmark.errors.count, "error") %> prohibited this bookmark from being saved:</h2>
+
+      <ul>
+      <% bookmark.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-row mt-2">
+    <div class="col">
+        <%= form.label :url %>
+    <%= form.text_field :url, id: :bookmark_url, placeholder: 'URL...', class: 'form-control' %>
+  </div>
+  <br>
+  <div class="col">
+      <%= form.label :type %>
+    <%= form.select :type_id, Type.all.collect {|k| [k.name, k.id]}, {} ,id: :bookmark_type_id, include_blank:false, :class => "form-control" %>
+  </div>
+  <br>
+  <div class="col">
+    <%= form.label :category_id %>
+    <%= form.select :category_id, Category.all.collect {|c| [c.name, c.id]}, {} ,id: :bookmark_category_id, include_blank:false, :class => "form-control" %>
+  </div>
+  <br>
+
+  <div class="col">
+    <%= form.submit 'Submit', class: 'btn btn-outline-warning' %>
+  </div>
+  </div>
+<% end %>

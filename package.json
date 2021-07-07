@@ -1,0 +1,7 @@
+{
+  "name": "Test_Bookmarks",
+  "private": true,
+  "dependencies": {
+    "highcharts": "^9.1.2"
+  }
+}
